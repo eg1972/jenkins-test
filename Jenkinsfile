@@ -35,7 +35,7 @@ pipeline {
                 sh '''
                   echo "Copying artifacts..."
                 '''
-                copyArtifacts(projectName: 'myPipeline1/artefacts', selector: lastSuccessful)
+                copyArtifacts(projectName: 'myPipeline1/artefacts', selector: lastSuccessful())
                 sh '''
                   find output/. -name ${FILE1}
                 '''
