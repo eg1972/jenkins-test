@@ -10,14 +10,16 @@ pipeline {
         stage('Create Files and Artifacts') {
             steps {
                 sh '''
-                  echo "Stage: Test"
+                  echo "Stage: Create files and artifacts"
                 '''
                 sh '''
                   echo "Creating files..."
                   mkdir -p output
                   touch output/${FILE1}
                   touch output/${FILE2}
-                  find / -name ${FILE1}
+                  echo "present working directory: "
+                  pwd
+                  find . -name ${FILE1}
                   echo "================================================================"
                 '''
                 sleep 5
