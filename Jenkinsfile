@@ -1,4 +1,4 @@
-ipeline {
+pipeline {
     agent {
         docker { image 'ubuntu:bionic' }
     }
