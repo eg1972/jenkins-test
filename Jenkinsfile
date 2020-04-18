@@ -23,10 +23,11 @@ pipeline {
                   echo "================================================================"
                 '''
                 sleep 5
+                echo "Creating artifacts..."
                 archiveArtifacts(artifacts: 'output/*.sav', excludes: 'output/*.md', allowEmptyArchive: true)
                 sh '''
-                  echo "Where are my artifacts ??"
-                  find ${JENKINS_HOME}/jobs/myPipeline1/.
+                  echo "Where are my artifacts ?? - saved on the master host under \${JENKINS_HOME}/jobs/<job>/branches/<branch>/builds/<build>/archive/"
+                  find .
                 '''
             }
         }
