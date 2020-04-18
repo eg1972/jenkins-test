@@ -2,12 +2,16 @@ pipeline {
     agent {
         docker { image 'ubuntu:bionic' }
     }
+    environment {
+        VAR1 = 'var1'
+        VAR2 = 'var2'
+    }
     stages {
         stage('Test') {
             steps {
                 sh '''
                   echo "Stage: Test"
-                  echo "Multiline"
+                  echo "VAR1: ${VAR1}; VAR2: ${VAR2}"
                   uname -a
                   df -ah
                   ls -la
