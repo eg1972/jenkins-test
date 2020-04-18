@@ -19,14 +19,14 @@ pipeline {
                   touch output/${FILE2}
                   echo "present working directory: "
                   pwd
-                  find . -name ${FILE1}
+                  find output/. -name ${FILE1}
                   echo "================================================================"
                 '''
                 sleep 5
                 echo "Creating artifacts..."
                 archiveArtifacts(artifacts: 'output/*.sav', excludes: 'output/*.md', allowEmptyArchive: true)
                 sh '''
-                  echo "Where are my artifacts ?? - saved on the master host under \${JENKINS_HOME}/jobs/<job>/branches/<branch>/builds/<build>/archive/"
+                  echo "Where are my artifacts ?? - saved on the master host under JENKINS_HOME/jobs/<job>/branches/<branch>/builds/<build>/archive/"
                   find .
                 '''
             }
