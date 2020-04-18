@@ -33,7 +33,11 @@ pipeline {
         stage('Use Artifacts') {
             steps {
                 sh '''
-                  echo "How can I use my artifacts ??"
+                  echo "Copying artifacts..."
+                '''
+                copyArtifacts(projectName: 'myPipeline1/artefacts', selector: lastSuccessful)
+                sh '''
+                  find output/. -name ${FILE1}
                 '''
             }
         }
