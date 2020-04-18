@@ -27,7 +27,6 @@ pipeline {
                 archiveArtifacts(artifacts: 'output/*.sav', excludes: 'output/*.md', allowEmptyArchive: true)
                 sh '''
                   echo "Where are my artifacts ?? - saved on the master host under JENKINS_HOME/jobs/<job>/branches/<branch>/builds/<build>/archive/"
-                  find .
                 '''
             }
         }
