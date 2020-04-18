@@ -13,6 +13,7 @@ pipeline {
                 sh '''
                   echo "Stage: Test"
                   echo "VAR1: ${VAR1}; VAR2: ${VAR2}"
+                  echo "this line is not printed in console output, because it contains sensitive data..."
                   echo "test-user: ${TEST_USER_USR}; test-password: ${TEST_USER_PSW}"
                   uname -a
                   df -ah
