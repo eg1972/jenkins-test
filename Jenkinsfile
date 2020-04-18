@@ -5,6 +5,7 @@ pipeline {
     environment {
         VAR1 = 'var1'
         VAR2 = 'var2'
+        TEST_USER = credentials('test-credentials')                                                                     // needs to be defined in Jenkins globally (or as project-scope)
     }
     stages {
         stage('Test') {
@@ -12,6 +13,7 @@ pipeline {
                 sh '''
                   echo "Stage: Test"
                   echo "VAR1: ${VAR1}; VAR2: ${VAR2}"
+                  echo "test-user: ${TEST_USER_USR}; test-password: ${TEST_USER_PSW}"
                   uname -a
                   df -ah
                   ls -la
