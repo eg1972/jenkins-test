@@ -8,7 +8,7 @@ pipeline {
                 sh '''
                   echo "Stage: Test"
                   echo "Multiline"
-                  uneme -a
+                  uname -a
                   df -ah
                   ls -la
                   echo "================================================================00"
