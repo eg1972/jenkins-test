@@ -19,7 +19,7 @@ pipeline {
                   touch output/${FILE2}
                   echo "present working directory: "
                   pwd
-                  find output/. -name ${FILE1}
+                  find . -name ${FILE1}
                   echo "================================================================"
                 '''
                 sleep 5
@@ -37,7 +37,7 @@ pipeline {
                 '''
                 copyArtifacts(projectName: 'myPipeline1/artefacts', selector: lastSuccessful())
                 sh '''
-                  find output/. -name ${FILE1}
+                  find . -name ${FILE1}
                 '''
             }
         }
